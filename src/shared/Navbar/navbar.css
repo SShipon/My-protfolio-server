@@ -1,0 +1,24 @@
+
+.navbar {
+    background-color: transparent;
+    position: fixed;
+    top:0;
+    z-index: 1;
+  font-weight: 400;
+  background: #0b041e;
+  color: #fff;
+   
+    
+}
+
+
+/*  my component updated */
+ 
+.navbar.colorChange {
+  background: linear-gradient(90deg, #29292c, #f459ff, #53353d, #49483e);
+}
+
+
+.miniNav{
+  background: linear-gradient(90deg, #59415a, #e79aec, #b98392, #494633);
+}
