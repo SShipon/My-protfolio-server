@@ -8,13 +8,16 @@ app.use(cors());
 app.use(express.json());
 
 
-const corsConfig = {
-  origin: '',
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE']
-}
-app.use(cors(corsConfig))
-app.options("", cors(corsConfig))
+// const corsConfig = {
+//   origin: '',
+//   credentials: true,
+//   methods: ['GET', 'POST', 'PUT', 'DELETE']
+// }
+// app.use(cors(corsConfig))
+// app.options("", cors(corsConfig))
+
+app.use(cors()); // Enable CORS
+app.use(express.json()); // Parse JSON request bodies
 
 // uri link 
 const uri = `mongodb+srv://${process.env.DATABASE}:${process.env.DB_PASSWORD}@cluster0.u675lb8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
