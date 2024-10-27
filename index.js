@@ -85,11 +85,19 @@ async function run() {
         res.send(result);
       });
 
-      app.delete('/blog/:id' , async(req,res)=>{
-         const id  = req.params.id;
-      const result = await blogsCollection.deleteOne({_id: new ObjectId(id)})
-        res.send(result)
-       })
+
+      app.get('/blog/:id', async (req, res) => {
+        const id = req.params.id;
+        const query = { _id: new ObjectId(id) };
+        const result = await blogsCollection.findOne(query);
+        res.send(result);
+      });
+
+      // app.delete('/blog/:id' , async(req,res)=>{
+      //    const id  = req.params.id;
+      // const result = await blogsCollection.deleteOne({_id: new ObjectId(id)})
+      //   res.send(result)
+      //  })
 
 
       // data put and updated data api create
