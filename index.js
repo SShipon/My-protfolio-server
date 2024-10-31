@@ -41,7 +41,7 @@ async function run() {
     const blogsCollection = client.db('portfolio').collection('blogs');
    
     // Sporting get data client site
-    app.get('/projects', async (req, res) => {
+    app.get('/project', async (req, res) => {
       const query =  {};
       const cursor = portfolioCollection.find(query)
       const result = await cursor.toArray() 
