@@ -67,6 +67,25 @@ async function run() {
         res.send(result);
       });
 
+      app.delete('/project/:id', async (req, res) => {
+        const id = req.params.id;
+        console.log('portfolioCollection ID:', id);  // Add a console log to check the incoming ID
+        
+        try {
+          // Make sure you convert the ID to ObjectId if you're using MongoDB
+          const result = await portfolioCollection.deleteOne({ _id: new ObjectId(id) });
+      
+          if (result.deletedCount === 0) {
+            return res.status(404).send({ message: 'Blog not found' });
+          }
+      
+          res.send({ message: 'Blog deleted successfully' });
+        } catch (error) {
+          console.error(error);
+          res.status(500).send({ message: 'Error deleting blog' });
+        }
+      });
+      
 
       app.post('/blog', async (req, res) => {
         try {
@@ -93,11 +112,25 @@ async function run() {
         res.send(result);
       });
 
-      // app.delete('/blog/:id' , async(req,res)=>{
-      //    const id  = req.params.id;
-      // const result = await blogsCollection.deleteOne({_id: new ObjectId(id)})
-      //   res.send(result)
-      //  })
+      app.delete('/blog/:id', async (req, res) => {
+        const id = req.params.id;
+        console.log('Blog ID:', id);  // Add a console log to check the incoming ID
+        
+        try {
+          // Make sure you convert the ID to ObjectId if you're using MongoDB
+          const result = await blogsCollection.deleteOne({ _id: new ObjectId(id) });
+      
+          if (result.deletedCount === 0) {
+            return res.status(404).send({ message: 'Blog not found' });
+          }
+      
+          res.send({ message: 'Blog deleted successfully' });
+        } catch (error) {
+          console.error(error);
+          res.status(500).send({ message: 'Error deleting blog' });
+        }
+      });
+      
 
 
       // data put and updated data api create
